@@ -1,0 +1,4 @@
+# setup efs access point
+
+sudo yum install -y amazon-efs-utils
+sudo mount -t efs -o tls,accesspoint=fsap-0acf0e5e208da3b75 fs-6dac952c: /home/ec2-user/efs_project --verbose
