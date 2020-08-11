@@ -10,7 +10,11 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "args": ["-v", "arg1", "arg2"]
+            "args": [
+                "-v",
+                "arg1",
+                "arg2"
+            ]
         },
         {
             "name": "Python: Current File (External Terminal)",
@@ -18,7 +22,28 @@
             "request": "launch",
             "program": "${file}",
             "console": "externalTerminal",
-            "args": ["-v", "arg1", "arg2"]
+            "args": [
+                "-v",
+                "arg1",
+                "arg2"
+            ]
+        },
+        {
+            "name": "xgb",
+            "type": "python",
+            "request": "launch",
+            "program": "xgb_train.py",
+            "console": "integratedTerminal",
+            // Switch to current file directory as working directory
+            "cwd": "${fileDirname}",
+            "args": [
+                "--train",
+                "../../test_data/train/",
+                "--validation",
+                "../../test_data/val/",
+                "--model-dir",
+                "../../test_data/"
+            ]
         }
     ]
 }
