@@ -2,11 +2,9 @@
     ///////////////////////////////////////////////////////////////////////////
     // HYPER-PERSONALIZED STANZA
     ///////////////////////////////////////////////////////////////////////////
-
     // Insider frequency: daily or weekly.
-    "jupyter.insidersChannel": "daily",
+    "jupyter.insidersChannel": "off",
     "python.insidersChannel": "daily",
-
     // Python stuffs
     "python.pythonPath": "/home/verdi/miniconda3/envs/py/bin/python",
     "python.envFile": "${workspaceFolder}/.vscenv",
@@ -16,22 +14,18 @@
     "terminal.integrated.env.linux": {
         "PYTHONPATH": "${workspaceFolder}/src:${env:PYTHONPATH}"
     },
-
     // GUI: vscode
-    "window.zoomLevel": 0,  // osx retina scaled: -1; lxqt 4k monitor: 1
+    "window.zoomLevel": -1, // osx retina scaled: -1; lxqt 4k monitor: 1
     "debug.console.fontSize": 12,
     "editor.fontSize": 12,
     "terminal.integrated.fontSize": 12,
-    "extensions.showRecommendationsOnlyOnDemand": true,  // Default to true; set false if you prefer.
+    "extensions.showRecommendationsOnlyOnDemand": true, // Default to true; set false if you prefer.
     // GUI: extensions
-    "markdown.preview.fontSize": 16,  // yzhang.markdown-all-in-one
+    "markdown.preview.fontSize": 16, // yzhang.markdown-all-in-one
     "dimmer.enabled": false, // imagio.vscode-dimmer-block
-
-
     ///////////////////////////////////////////////////////////////////////////
     // OFF TELEMETRIES (LIFTED TO NEAR TOP FOR VISIBILITY
     ///////////////////////////////////////////////////////////////////////////
-
     // Global telemetries
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
@@ -40,12 +34,9 @@
     // Extensions telemetries
     "aws.telemetry": false,
     "gitlens.advanced.telemetry.enabled": false,
-
-
     ///////////////////////////////////////////////////////////////////////////
     // OTHER CONFIGS
     ///////////////////////////////////////////////////////////////////////////
-
     // File exclusions
     "files.exclude": {
         "**/.git": true,
@@ -69,12 +60,10 @@
         "**/.*_cache/**": true,
         "**/.tox/**": true
     },
-
     "files.associations": {
         "Dockerfile.cpu": "dockerfile",
         "Dockerfile.gpu": "dockerfile"
     },
-
     // Debugger
     "debug.allowBreakpointsEverywhere": true,
     "jupyter.alwaysTrustNotebooks": true,
@@ -87,22 +76,22 @@
     "jupyter.sendSelectionToInteractiveWindow": true,
     "jupyter.showKernelSelectionOnInteractiveWindow": true,
     "python.formatting.provider": "black",
-    "python.jediEnabled": false,  //TODO: to be deprecated. https://github.com/erictraut/vscode-python/commit/616f129b356deb5dd79ec4c438c392f7f5366eaf
+    // "python.jediEnabled": false, //TODO: to be deprecated. https://github.com/erictraut/vscode-python/commit/616f129b356deb5dd79ec4c438c392f7f5366eaf
     "python.languageServer": "Pylance", //https://github.com/erictraut/vscode-python/commit/616f129b356deb5dd79ec4c438c392f7f5366eaf
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--max-line-length=120"
+    ]
     "python.linting.mypyEnabled": true,
     "python.linting.pydocstyleEnabled": false,
     "python.showStartPage": false,
     "python.testing.pytestEnabled": true,
     "python.testing.unittestEnabled": false,
     "python.testing.nosetestsEnabled": false,
-
     // Workbench & editor
     "breadcrumbs.enabled": true,
     "editor.formatOnSave": true,
-    //"editor.formatOnSaveMode": "modifications",  //Not supported with Black
-    "editor.formatOnSaveTimeout": 5000,
     "editor.codeActionsOnSave": {
         "source.fixAll.markdownlint": true, // Extension davidanson.vscode-markdownlint
         "source.organizeImports": true
@@ -113,7 +102,6 @@
     //"editor.renderWhitespace": "trailing",
     "editor.renderControlCharacters": false,
     "editor.rulers": [
-        80,
         120
     ],
     "editor.suggestSelection": "first",
@@ -132,25 +120,20 @@
             "filenamePattern": "*.ipynb"
         }
     ],
-
-
     // Shortcuts in integrated terminal
-    "terminal.integrated.allowChords": false,  // send ctrl+k to integrated terminal
+    "terminal.integrated.allowChords": false, // send ctrl+k to integrated terminal
     "terminal.integrated.commandsToSkipShell": [
         // Linux: send ctrl+e to integrated terminal
         "-workbench.action.quickOpen",
-
         // alt-backspace to behave like in Bash
         "-workbench.action.terminal.deleteWordLeft"
     ],
     //"terminal.integrated.macOptionIsMeta": true, // Allow alt-{f,b,.} in integrated terminal. See https://github.com/Microsoft/vscode/issues/11314
     "terminal.integrated.rendererType": "experimentalWebgl",
-
     // Extensions
     "autoDocstring.docstringFormat": "google",
     "aws.samcli.location": "/usr/local/bin/sam",
-    "aws.profile": "default",
-    "gitlens.hovers.currentLine.over": "line",
+    "aws.profile": "profile:default",
     "markdown.extension.preview.autoShowPreviewToSide": true,
     "remote.SSH.defaultExtensions": [
         "amazonwebservices.aws-toolkit-vscode",
