@@ -4,9 +4,17 @@
 
 ```
 brew cask install iterm2
-brew install zsh
+brew cask install visual-studio-code
+brew install zsh tmux
 
 ```
+
+## Python using pyenv
+brew install pyenv
+
+- more configuration
+https://github.com/pyenv/pyenv#basic-github-checkout
+
 
 ## Change default mac Shell
 
@@ -15,36 +23,25 @@ chsh -s /bin/bash
 echo $SHELL
 ```
 
-## Change default shell on amazonlinux2
-
-```
-sudo yum install zsh
-sudo yum install util-linux-user
-sudo chsh -s $(which zsh)
-```
-
 ## install ohmyzsh
 
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 upgrade_oh_my_zsh
-```
-
-## Add plugin and restart zsh
-
-- this is to allow shortcut key like gss => git status
-- <https://github.com/ohmyzsh/ohmyzsh>
-
-Include the following plugin in ~/.zshrc file
 
 ```
-plugins=(
-     git
-     aws
-     tmux
- )
+
+## Setup Vim-plug
 
 ```
+# https://github.com/junegunn/vim-plug
+
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# then put .vimrc at home directory. Refer to template git repo
+```
+
 
 ## Material design colour schema for iterm2
 
@@ -62,16 +59,17 @@ curl -O https://raw.githubusercontent.com/MartinSeeler/iterm2-material-design/ma
 6. Select the material-design-colors.itermcolors file
 7. Select the material-design-colors from Load Presets…
 
-## Setup Vim-plug
 
-```
-# https://github.com/junegunn/vim-plug
+## AWSCLI
+https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html#cliv2-mac-install-cmd-all-users
 
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+## AWS SAM
+https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html
 
-# then put .vimrc at home directory
-```
+
+## Install Docker
+https://hub.docker.com/editions/community/docker-ce-desktop-mac/
+
 
 ## Conda set up
 

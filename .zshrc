@@ -156,7 +156,7 @@ export PROMPT='$(prompt_prefix)[%B%F{green}%~%b%F{white}]%B%F{magenta}${vcs_info
 # PyEnv
 ################################################################################
 export PATH="$HOME/.pyenv/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
+if command -v pyenv 1>/dev/null 2>&1; then # pyenv command exist
     export PYENV_ROOT=$HOME/.pyenv
     export PATH=$PYENV_ROOT/bin:$PATH
     eval "$(pyenv init -)"
