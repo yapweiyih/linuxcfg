@@ -1,16 +1,25 @@
 # Mac Setups
 
-## Setup brew, zsh, Iterm2, ohmyzsh
+## Setup brew, zsh, Iterm2, ohmyzsh, nodejs, rain
 
 ```
+brew update
 brew cask install iterm2
 brew cask install visual-studio-code
 brew install zsh tmux
+brew install npm
+brew install rain
+
+git config --global user.name yapweiyih
+git config --global user.email yapweiyih
+git config --global alias.lola "log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative"
+
 
 ```
 
 ## Python using pyenv
 brew install pyenv
+Add `eval "$(pyenv init -)"` into .zshrc
 
 - more configuration
 https://github.com/pyenv/pyenv#basic-github-checkout
@@ -71,7 +80,7 @@ https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/s
 https://hub.docker.com/editions/community/docker-ce-desktop-mac/
 
 
-## Conda set up
+## Conda set up (optional)
 
 add the folloiwng into .zshrc
 
@@ -128,26 +137,8 @@ git clone git@github.com-yihyap:aws-samples/amazon-sagemaker-audio-classificatio
 
 ```
 
-## AWSCLI v2
 
-```
-curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
-sudo installer -pkg AWSCLIV2.pkg -target /
-
-# Make sure pyenv /Users/yihyap/.pyenv/shims does not use the old awscli, if yes, rename it to aws_donotuse, so that pyenv will check the PATH
-which is /usr/local/bin
-```
-
-## AWS SAM Cli
-
-```
-brew tap aws/tap
-brew install aws-sam-cli
-sam --version
-brew upgrade sam
-```
-
-## Git AWS
+## Git AWS (optional)
 
 ```
 git config --global credential.helper '!aws codecommit credential-helper $@'
@@ -159,13 +150,6 @@ git config --global credential.UseHttpPath true
 
 Add .tmux.conf to HOME directory
 
-# Reference
-
-<https://medium.com/@rafavinnce/iterm2-zsh-oh-my-zsh-material-design-the-most-power-full-terminal-on-macos-332b1ee364a5>
-
-# Conda
-
-conda create --name myenv python=3.8
 
 # setup node.js for jupyter lab
 
@@ -176,22 +160,10 @@ brew upgrade npm
 npm version
 ```
 
-# pyenv setup
-
-```
-brew update
-brew install pyen
-```
-
-Add `eval "$(pyenv init -)"` into .zshrc
-
-```
-pyenv install 3.8.0
-# make versions has 's'
-pyenv versions
-```
 
 # Update jupyter config
+
+pip install environment_kernels
 
 Update ~/.jupyter/jupyter_notebook_config.py for jupyterlab to discover available kernel
 New virtual env must have package `ipython` to be discoverable
@@ -205,5 +177,4 @@ c.EnvironmentKernelSpecManager.find_conda_envs = False
 ```
 
 # Cloudformation tool - Rain
-
 - <https://github.com/aws-cloudformation/rain>
