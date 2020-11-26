@@ -3,8 +3,11 @@
     // HYPER-PERSONALIZED STANZA
     ///////////////////////////////////////////////////////////////////////////
 
-    // Python stuffs
+    // Insider frequency: daily or weekly.
+    "jupyter.insidersChannel": "daily",
     "python.insidersChannel": "daily",
+
+    // Python stuffs
     "python.pythonPath": "/home/verdi/miniconda3/envs/py/bin/python",
     "python.envFile": "${workspaceFolder}/.vscenv",
     "terminal.integrated.env.osx": {
@@ -74,21 +77,23 @@
 
     // Debugger
     "debug.allowBreakpointsEverywhere": true,
-
-    // Python settings
-    "python.dataScience.askForKernelRestart": false,
-    "python.dataScience.debugJustMyCode": false,
-    "python.dataScience.disableJupyterAutoStart": true,
-    "python.dataScience.gatherToScript": true,
-    "python.dataScience.searchForJupyter": false,
-    "python.dataScience.sendSelectionToInteractiveWindow": true,
+    "jupyter.alwaysTrustNotebooks": true,
+    "jupyter.askForKernelRestart": false,
+    "jupyter.debugJustMyCode": false,
+    "jupyter.disableJupyterAutoStart": true,
+    "jupyter.gatherToScript": true,
+    "jupyter.magicCommandsAsComments": true,
+    "jupyter.searchForJupyter": false,
+    "jupyter.sendSelectionToInteractiveWindow": true,
+    "jupyter.showKernelSelectionOnInteractiveWindow": true,
     "python.formatting.provider": "black",
     "python.jediEnabled": false,  //TODO: to be deprecated. https://github.com/erictraut/vscode-python/commit/616f129b356deb5dd79ec4c438c392f7f5366eaf
-    "python.languageServer": "Microsoft", //https://github.com/erictraut/vscode-python/commit/616f129b356deb5dd79ec4c438c392f7f5366eaf
+    "python.languageServer": "Pylance", //https://github.com/erictraut/vscode-python/commit/616f129b356deb5dd79ec4c438c392f7f5366eaf
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
     "python.linting.mypyEnabled": true,
-    "python.linting.pydocstyleEnabled": true,
+    "python.linting.pydocstyleEnabled": false,
+    "python.showStartPage": false,
     "python.testing.pytestEnabled": true,
     "python.testing.unittestEnabled": false,
     "python.testing.nosetestsEnabled": false,
@@ -96,6 +101,7 @@
     // Workbench & editor
     "breadcrumbs.enabled": true,
     "editor.formatOnSave": true,
+    //"editor.formatOnSaveMode": "modifications",  //Not supported with Black
     "editor.formatOnSaveTimeout": 5000,
     "editor.codeActionsOnSave": {
         "source.fixAll.markdownlint": true, // Extension davidanson.vscode-markdownlint
@@ -104,7 +110,7 @@
     "editor.minimap.enabled": false,
     "editor.parameterHints.cycle": true,
     "editor.renderLineHighlight": "all",
-    "editor.renderWhitespace": "none",
+    //"editor.renderWhitespace": "trailing",
     "editor.renderControlCharacters": false,
     "editor.rulers": [
         80,
@@ -116,9 +122,17 @@
     "explorer.confirmDragAndDrop": false,
     "explorer.openEditors.visible": 0,
     "files.eol": "\n",
+    "terminal.integrated.localEchoLatencyThreshold": -1,
     "terminal.integrated.lineHeight": 1.2,
     "workbench.startupEditor": "none",
     "workbench.tree.indent": 20,
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter-notebook",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+
 
     // Shortcuts in integrated terminal
     "terminal.integrated.allowChords": false,  // send ctrl+k to integrated terminal
@@ -129,7 +143,7 @@
         // alt-backspace to behave like in Bash
         "-workbench.action.terminal.deleteWordLeft"
     ],
-    "terminal.integrated.macOptionIsMeta": true, // Allow alt-{f,b,.} in integrated terminal. See https://github.com/Microsoft/vscode/issues/11314
+    //"terminal.integrated.macOptionIsMeta": true, // Allow alt-{f,b,.} in integrated terminal. See https://github.com/Microsoft/vscode/issues/11314
     "terminal.integrated.rendererType": "experimentalWebgl",
 
     // Extensions
@@ -165,6 +179,7 @@
         "yzhang.markdown-all-in-one",
         "zeithaste.cursorCharCode"
     ],
+    "tabnine.experimentalAutoImports": false,
     "todo-tree.highlights.defaultHighlight": {
         "opacity": 0,
         "fontStyle": "italic",

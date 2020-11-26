@@ -19,4 +19,8 @@ boto3
 s3fs
 
 # misc
+<<<<<<< HEAD
 psutil
+=======
+psutil
+>>>>>>> c0f9bc4c167f295c8079e923e4d8f432a837152f
