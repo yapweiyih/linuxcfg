@@ -99,6 +99,56 @@ Each local mac public key can only be associated with one Git account
 
 - <https://medium.com/@xiaolishen/use-multiple-ssh-keys-for-different-github-accounts-on-the-same-computer-7d7103ca8693>
 
+Debugging steps:
+
+```
+# make sure you have the .ssh/config below:
+Host github.com
+    HostName github.com
+    User git
+    #AddKeysToAgent yes
+    #UseKeychain yes
+    #IdentityFile ~/.ssh/id_rsa
+
+Host github.com-yihyap
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_amazon
+
+
+# Add rsa id
+ssh-add id_rsa
+ssh-add id_rsa_amazon
+
+# Do a quick test as follows, and make sure they login into different account name:
+ssh github.com
+ssh github.com-yihyap
+
+# git clone using the correct host name alias, like github.com-yihyap
+git clone git@github.com-yihyap:aws-samples/amazon-sagemaker-audio-classification-pytorch.git
+
+
+```
+
+## AWSCLI v2
+
+```
+curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+sudo installer -pkg AWSCLIV2.pkg -target /
+
+# Make sure pyenv /Users/yihyap/.pyenv/shims does not use the old awscli, if yes, rename it to aws_donotuse, so that pyenv will check the PATH
+which is /usr/local/bin
+```
+
+## AWS SAM Cli
+
+```
+brew tap aws/tap
+brew install aws-sam-cli
+sam --version
+brew upgrade sam
+```
+
 ## Git AWS
 
 ```
@@ -114,3 +164,48 @@ Add .tmux.conf to HOME directory
 # Reference
 
 <https://medium.com/@rafavinnce/iterm2-zsh-oh-my-zsh-material-design-the-most-power-full-terminal-on-macos-332b1ee364a5>
+
+# Conda
+
+conda create --name myenv python=3.8
+
+# setup node.js for jupyter lab
+
+```
+# This is to handle node.js error
+brew upgrade npm
+# Make sure no error
+npm version
+```
+
+# pyenv setup
+
+```
+brew update
+brew install pyen
+```
+
+Add `eval "$(pyenv init -)"` into .zshrc
+
+```
+pyenv install 3.8.0
+# make versions has 's'
+pyenv versions
+```
+
+# Update jupyter config
+
+Update ~/.jupyter/jupyter_notebook_config.py for jupyterlab to discover available kernel
+New virtual env must have package `ipython` to be discoverable
+
+```
+c.NotebookApp.kernel_spec_manager_class = 'environment_kernels.EnvironmentKernelSpecManager'
+c.EnvironmentKernelSpecManager.virtualenv_env_dirs=['/Users/yihyap/.pyenv/versions/']
+c.EnvironmentKernelSpecManager.find_conda_envs = False
+#c.EnvironmentKernelSpecManager.conda_env_dirs=['/opt/miniconda/envs/']
+
+```
+
+# Cloudformation tool - Rain
+
+- <https://github.com/aws-cloudformation/rain>

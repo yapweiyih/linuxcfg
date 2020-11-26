@@ -7,6 +7,7 @@
 " $ vim --version|grep .xterm_clipboard -o
 " +xterm_clipboard
 
+set nocompatible
 
 """ Plugins
 call plug#begin('~/.vim/plugged')
@@ -18,13 +19,15 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'tmsvg/pear-tree'
 
 " System-wide bundles:
-" - conque: sudo apt-get install vim-conque
+" - [deprecated] conque: sudo apt-get install vim-conque
+"   * Deprecation reason: vim-8 has built-in :terminal and :termdebug commands
 
 " Programming languages
-Plug 'davidhalter/jedi-vim', {'for': 'python'}
+"Plug 'davidhalter/jedi-vim', {'for': 'python'}
 "Plug 'JuliaLang/julia-vim', {'for': 'julia'}
 "Plug 'derekwyatt/vim-scala', {'for': 'scala'}
-Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
+"Plug 'tmhedberg/SimpylFold', {'for': 'python'}
+"Plug 'luochen1990/rainbow'
 
 " Color
 Plug 'nanotech/jellybeans.vim'
@@ -35,19 +38,16 @@ call plug#end()
 "set autochdir
 set laststatus=2
 set hlsearch
-set colorcolumn=120
+set colorcolumn=80
 set splitbelow
 set splitright
 set lazyredraw
+autocmd FileType help setlocal number
 autocmd BufNewFile,BufRead *.jl set filetype=julia
 autocmd BufNewFile,BufRead *.hql set filetype=sql
 autocmd BufNewFile,BufRead *.pmml set filetype=xml
 autocmd BufNewFile,BufRead *.cu set filetype=cuda
 autocmd BufNewFile,BufRead *.cuh set filetype=cuda
-
-" Key mapping
-" nmap <F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>u
-imap jj <Esc>
 
 """ Coding style
 " prefer spaces to tabs
@@ -58,10 +58,11 @@ set nowrap
 set number
 set foldmethod=indent
 set foldlevel=99
-set relativenumber
+
 
 """ Shortcuts
 map <F3> :set paste!<CR>
+imap jj <Esc>
 
 " Use <leader>l to toggle display of whitespace
 nmap <leader>l :set list!<CR>
@@ -72,9 +73,21 @@ nmap <leader>l :set list!<CR>
 "map <F2> :NERDTreeToggle<CR>
 map <F2> :NERDTreeTabsToggle<CR>
 
+let g:NERDTreeDirArrows=0
 let NERDTreeIgnore = ['\.pyc$']
+autocmd FileType nerdtree set number norelativenumber
 
-if exists('$DISPLAY')
+" Try to enable relative & static numbers, side-by-side.
+" Silence the error message if RltvNmbr plugin not loaded.
+autocmd BufEnter * :silent! RltvNmbr
+
+" Highlight unwanted whitespace, and strip on save
+let g:better_whitespace_enabled = 1
+let g:strip_whitespace_on_save = 1
+let g:strip_whitespace_confirm = 0
+let g:strip_only_modified_lines = 0
+
+if exists('$DISPLAY') || exists('$JUPYTER_SERVER_URL')
     " running under X11
     set t_Co=256
     set cursorline
@@ -84,7 +97,7 @@ if exists('$DISPLAY')
 \       "Search": { "guibg": "ffff87", "guifg": "303030"},
 \       "VertSplit": { "guibg": "767676", "guifg": "767676"}
 \   }
-    colorscheme jellybeans
+    :silent! colorscheme jellybeans
 
     " Color of vertical rule at 80 char
     highlight ColorColumn ctermbg=237
@@ -98,7 +111,7 @@ if exists('$DISPLAY')
         highlight Pmenu guibg=#cccccc gui=bold
     endif
 
-    let g:airline_powerline_fonts=1
+    "let g:airline_powerline_fonts=1
 else
     " running on console
     colorscheme peachpuff
