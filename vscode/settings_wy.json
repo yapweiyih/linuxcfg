@@ -1,0 +1,216 @@
+{
+    // Hyper-personalized stanza.
+    "python.insidersChannel": "off",
+    //"python.pythonPath": "/Users/yihyap/anaconda3/envs/sandbox36/bin/python",
+    "python.envFile": "${workspaceFolder}/.env",
+    //"python.venvPath": "/Users/yihyap/vscode/virtualenv/.venv",
+    // Python path only visible in vscode
+    "terminal.integrated.env.osx": {
+        "PYTHONPATH": "${workspaceFolder}/src:${workspaceFolder}:${env:PYTHONPATH}"
+    },
+    "terminal.integrated.env.linux": {
+        "PYTHONPATH": "{workspaceFolder}/src:${workspaceFolder}:${env:PYTHONPATH}"
+    },
+    // osx retina scaled: -1; lxqt 4k monitor: 1
+    "window.zoomLevel": -1,
+    //imagio.vscode-dimmer-block
+    "dimmer.enabled": false,
+    // Off global telemetries (lifted to near top for visibility)
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    // File exclusions, will not apppear in file explorer
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/._*": true,
+        "**/__pycache__": true,
+        "**/.ipynb_checkpoints": true,
+        "**/.*_cache": true,
+        "**/.venv/**": false
+    },
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/*/**": true,
+        "**/._*": true,
+        "**/__pycache__": true,
+        "**/.ipynb_checkpoints": true,
+        "**/.*_cache": true,
+        "**/.venv/**": false
+    },
+    "python.autoComplete.addBrackets": false,
+    "python.formatting.provider": "black",
+    //"python.formatting.blackPath": "/Users/yihyap/anaconda3/envs/sandbox36/bin/black",
+    "python.formatting.blackArgs": [
+        "--line-length",
+        "120"
+    ],
+    "python.sortImports.args": [
+        "-rc",
+        "--atomic",
+        "--line-width",
+        "120",
+        "--multi-line",
+        "6"
+    ],
+    // "python.jediEnabled": false,
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--max-line-length=120"
+        //"--ignore=E402,F841,F401,E302,E305",
+    ],
+    "python.linting.pydocstyleEnabled": false,
+    "python.linting.pydocstyleArgs": [
+        "--ignore=D103,D203,D213"
+    ],
+    "python.linting.pycodestyleEnabled": false,
+    "python.linting.pycodestyleArgs": [
+        "--ignore=E501"
+    ],
+    "python.linting.mypyEnabled": true,
+    "python.terminal.activateEnvironment": true,
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.testing.nosetestsEnabled": false,
+    // Workbench & editor
+    "breadcrumbs.enabled": true,
+    "editor.fontSize": 12,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.markdownlint": true //davidanson.vscode-markdownlint
+    },
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "none",
+    "editor.renderControlCharacters": false,
+    "editor.rulers": [
+        120
+    ],
+    "editor.suggestSelection": "first",
+    "editor.wordWrapColumn": 120,
+    "explorer.confirmDelete": true,
+    "explorer.confirmDragAndDrop": true,
+    "files.eol": "\n",
+    "workbench.startupEditor": "none",
+    "workbench.tree.indent": 16,
+    // Integrated terminal
+    "terminal.integrated.allowChords": false, // send ctrl+k to integrated terminal
+    "terminal.integrated.commandsToSkipShell": [
+        // Linux: send ctrl+e to integrated terminal
+        "-workbench.action.quickOpen"
+    ],
+    "terminal.integrated.macOptionIsMeta": true, // Allow alt-{f,b,.} in integrated terminal. See https://github.com/Microsoft/vscode/issues/11314
+    "terminal.integrated.rendererType": "experimentalWebgl",
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.lineHeight": 1.2,
+    "terminal.integrated.shellArgs.osx": [
+        "-l"
+    ],
+    // Extensions
+    "autoDocstring.docstringFormat": "google",
+    "bracket-pair-colorizer-2.forceUniqueOpeningColor": true,
+    "bracket-pair-colorizer-2.forceIterationColorCycle": true,
+    "bracket-pair-colorizer-2.showBracketsInGutter": false,
+    "gitlens.hovers.currentLine.over": "line",
+    "markdown.extension.toc.orderedList": true,
+    "markdown.extension.preview.autoShowPreviewToSide": false,
+    "remote.SSH.defaultExtensions": [
+        "2gua.rainbow-brackets",
+        "bungcip.better-toml",
+        "christian-kohler.path-intellisense",
+        "DavidAnson.vscode-markdownlint",
+        "donjayamanne.githistory",
+        "EditorConfig.EditorConfig",
+        "emilast.LogFileHighlighter",
+        "Gruntfuggly.todo-tree",
+        "IBM.output-colorizer",
+        "mhutchie.git-graph",
+        "mikestead.dotenv",
+        "ms-python.python",
+        "ms-vscode-remote.remote-ssh-nightly",
+        "ms-vscode-remote.remote-ssh-edit-nightly",
+        "njpwerner.autodocstring",
+        "redhat.vscode-yaml",
+        "shardulm94.trailing-spaces",
+        "stkb.rewrap",
+        "TabNine.tabnine-vscode",
+        "usernamehw.errorlens",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "yzhang.markdown-all-in-one"
+    ],
+    // EXPERIMENTAL: force enable remote extensions.
+    "remote.extensionKind": {
+        "aaron-bond.better-comments": [
+            "workspace"
+        ],
+        "CoenraadS.bracket-pair-colorizer-2": [
+            "workspace"
+        ], // Still doesn't work
+        "mikestead.dotenv": [
+            "workspace"
+        ],
+        "IBM.output-colorizer": [
+            "workspace"
+        ]
+    },
+    "todo-tree.highlights.defaultHighlight": {
+        "opacity": 0,
+        "fontStyle": "italic",
+        "fontWeight": "bold"
+    },
+    "todo-tree.highlights.customHighlight": {
+        "TODO": {
+            "foreground": "yellow"
+        },
+        "FIXME": {
+            "foreground": "red"
+        }
+    },
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "yaml.customTags": [
+        "!And",
+        "!And sequence",
+        "!If",
+        "!If sequence",
+        "!Not",
+        "!Not sequence",
+        "!Equals",
+        "!Equals sequence",
+        "!Or",
+        "!Or sequence",
+        "!FindInMap",
+        "!FindInMap sequence",
+        "!Base64",
+        "!Join",
+        "!Join sequence",
+        "!Cidr",
+        "!Ref",
+        "!Sub",
+        "!Sub sequence",
+        "!GetAtt",
+        "!GetAZs",
+        "!ImportValue",
+        "!ImportValue sequence",
+        "!Select",
+        "!Select sequence",
+        "!Split",
+        "!Split sequence"
+    ],
+    "tabnine.experimentalAutoImports": true,
+    "python.languageServer": "Pylance",
+    "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "python.analysis.typeCheckingMode": "basic",
+    "aws.samcli.location": "/usr/local/bin/sam",
+    "liveshare.accountProvider": "github",
+    "liveshare.account": "daweifu1983",
+    "jupyter.ignoreVscodeTheme": true,
+    "jupyter.searchForJupyter": false,
+    "jupyter.askForKernelRestart": false,
+    "jupyter.sendSelectionToInteractiveWindow": true,
+    "editor.suggest.showStatusBar": true,
+    "remote.SSH.localServerDownload": "auto",
+}
