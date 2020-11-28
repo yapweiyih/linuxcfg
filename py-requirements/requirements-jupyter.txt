@@ -1,3 +1,4 @@
 jupyterlab
 environment_kernels
 jupyter_bokeh
+jupyter_contrib_nbextensions
