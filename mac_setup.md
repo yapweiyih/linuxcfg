@@ -18,12 +18,12 @@ git config --global alias.lola "log --graph --all --format=format:'%C(bold blue)
 ```
 
 ## Python using pyenv
+
 brew install pyenv
 Add `eval "$(pyenv init -)"` into .zshrc
 
 - more configuration
-https://github.com/pyenv/pyenv#basic-github-checkout
-
+<https://github.com/pyenv/pyenv#basic-github-checkout>
 
 ## Change default mac Shell
 
@@ -51,7 +51,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # then put .vimrc at home directory. Refer to template git repo
 ```
 
-
 ## Material design colour schema for iterm2
 
 1. download
@@ -68,17 +67,17 @@ curl -O https://raw.githubusercontent.com/MartinSeeler/iterm2-material-design/ma
 6. Select the material-design-colors.itermcolors file
 7. Select the material-design-colors from Load Presets…
 
-
 ## AWSCLI
-https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html#cliv2-mac-install-cmd-all-users
+
+<https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html#cliv2-mac-install-cmd-all-users>
 
 ## AWS SAM
-https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html
 
+<https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html>
 
 ## Install Docker
-https://hub.docker.com/editions/community/docker-ce-desktop-mac/
 
+<https://hub.docker.com/editions/community/docker-ce-desktop-mac/>
 
 ## Conda set up (optional)
 
@@ -104,7 +103,13 @@ unset __conda_setup
 
 Each local mac public key can only be associated with one Git account
 
+Reference:
+
 - <https://medium.com/@xiaolishen/use-multiple-ssh-keys-for-different-github-accounts-on-the-same-computer-7d7103ca8693>
+
+Create ssh key:
+ssh-keygen -t rsa -b 4096 -C "heavenode@gmail.com"
+copy /Users/yihyap/.ssh/id_rsa.pub into github ssh key
 
 Debugging steps:
 
@@ -123,7 +128,7 @@ Host github.com-yihyap
     IdentityFile ~/.ssh/id_rsa_amazon
 
 
-# Add rsa id
+# Add rsa id (optional)
 ssh-add id_rsa
 ssh-add id_rsa_amazon
 
@@ -137,19 +142,9 @@ git clone git@github.com-yihyap:aws-samples/amazon-sagemaker-audio-classificatio
 
 ```
 
-
-## Git AWS (optional)
-
-```
-git config --global credential.helper '!aws codecommit credential-helper $@'
-git config --global credential.UseHttpPath true
-
-```
-
 ## TMUX configuration
 
 Add .tmux.conf to HOME directory
-
 
 # setup node.js for jupyter lab
 
@@ -159,7 +154,6 @@ brew upgrade npm
 # Make sure no error
 npm version
 ```
-
 
 # Update jupyter config
 
@@ -177,4 +171,13 @@ c.EnvironmentKernelSpecManager.find_conda_envs = False
 ```
 
 # Cloudformation tool - Rain
+
 - <https://github.com/aws-cloudformation/rain>
+
+## Git AWS (deprecated)
+
+```
+git config --global credential.helper '!aws codecommit credential-helper $@'
+git config --global credential.UseHttpPath true
+
+```
