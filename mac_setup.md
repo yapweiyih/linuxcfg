@@ -128,9 +128,8 @@ Host github.com-yihyap
     IdentityFile ~/.ssh/id_rsa_amazon
 
 
-# Add rsa id (optional)
-ssh-add id_rsa
-ssh-add id_rsa_amazon
+# Add rsa id (this is required when adding a second rsa key)
+ssh-add new-mac-aws-samples-id-rsa
 
 # Do a quick test as follows, and make sure they login into different account name:
 ssh github.com
